@@ -25,7 +25,7 @@ function Header() {
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNOhpV67XSI4Vz5Z_L7XoWiH7UzZQDBTzS3g&usqp=CAU" alt="" className="profilePic"/>
                 </div>
 
-                <h2 className="userName">Kawsar Mia</h2>
+                <h2 className="userName">Kawsar</h2>
             </div>
 
             <div className="toggleMenu">
