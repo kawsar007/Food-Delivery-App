@@ -136,3 +136,78 @@ header {
 /* =========================================================================
                         Header Styles Ends
 ============================================================================ */
+
+/* =========================================================================
+                        Main Section Styles Start
+============================================================================ */
+
+main {
+  width: 100%;
+  height: auto;
+  background: #555;
+  margin-top: 60px;
+}
+
+/* =========================================================================
+                        Main Section Styles End
+============================================================================ */
+
+/* =========================================================================
+                        Bottom Menu Section Styles Start
+============================================================================ */
+
+.bottomMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60px;
+  background: #d5d5d5;
+  border-radius: 24px 25px 0 0;
+  z-index: 101;
+}
+
+.bottomMenu ul {
+  display: flex;
+}
+
+.bottomMenu ul li {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+
+. {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.bottomMenu ul li a .icon {
+  position: relative;
+  display: block;
+  line-height: 70px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.bottomMenu ul li a .icon .MuiSvgIcon-root {
+  font-size: 26px;
+  color: #373848;
+}
+
+.bottomMenu ul li:hover a .icon {
+  transform: translateY(-26px);
+}
+
+/* =========================================================================
+                        Bottom Menu Section Styles End
+============================================================================ */
