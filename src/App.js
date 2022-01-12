@@ -1,9 +1,20 @@
 import { AccountBalanceWalletRounded, Chat, Favorite, HomeRounded, Settings, SummarizeRounded } from '@mui/icons-material';
+import { useEffect } from 'react';
 import './App.css';
 import BottomMenu from './Components/BottomMenu';
 import Header from './Components/Header';
 
+
 function App() {
+  useEffect(() => {
+     const menuLi = document.querySelectorAll("#menu li");
+     console.log(menuLi);
+     function setMenuActive() {
+       menuLi.forEach((n) => n.classList.remove("active"));
+       this.classList.add("active");
+     }
+     menuLi.forEach((n) => n.addEventListener("click", setMenuActive));
+  }, []);
   return (
     <div className="App">
       {/* Header Section */}
