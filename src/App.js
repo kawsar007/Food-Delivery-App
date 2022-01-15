@@ -5,6 +5,7 @@ import BannerName from './Components/BannerName';
 import BottomMenu from './Components/BottomMenu';
 import { MenuItems } from './Components/Data.js';
 import Header from './Components/Header';
+import ItemCard from './Components/ItemCard';
 import MenuCard from './Components/MenuCard';
 import SubMenuContainer from './Components/SubMenuContainer';
 
@@ -57,7 +58,16 @@ function App() {
               }
              
             </div>
-            <div className="dishitemContainer"></div>
+            {/* Dish Item Container */}
+            <div className="dishitemContainer">
+              <ItemCard 
+              imgSrc={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx1MNr7YXhLO48AN4y5k_u7KaTbYMreXfrvw&usqp=CAU"} 
+              name={"Burger Bistro"} 
+              rating={5}
+              price={"7.5"}
+              />
+
+            </div>
           </div>
 
         </div>
