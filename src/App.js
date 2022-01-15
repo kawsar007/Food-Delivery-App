@@ -3,10 +3,14 @@ import { useEffect } from 'react';
 import './App.css';
 import BannerName from './Components/BannerName';
 import BottomMenu from './Components/BottomMenu';
+import { MenuItems } from './Components/Data.js';
 import Header from './Components/Header';
+import MenuCard from './Components/MenuCard';
+import SubMenuContainer from './Components/SubMenuContainer';
 
 
 function App() {
+  // console.log(MenuItems, "Data");
   useEffect(() => {
      const menuLi = document.querySelectorAll("#menu li");
      console.log(menuLi);
@@ -15,6 +19,16 @@ function App() {
        this.classList.add("active");
      }
      menuLi.forEach((n) => n.addEventListener("click", setMenuActive));
+
+    //  Menucard active toggle
+    const menuCards = document.querySelector(".rowContainer").querySelectorAll(".rowMenuCard");
+
+    function setMenuCardActive() {
+      menuCards.forEach((n) => n.classList.remove("active"));
+      this.classList.add("active");
+    }
+
+    menuCards.forEach((n) => n.addEventListener("click", setMenuCardActive));
   }, []);
   return (
     <div className="App">
@@ -27,6 +41,25 @@ function App() {
             <BannerName name={"Vetri"} discount={"20"} link={"#"}/>
             <img src="/images/deliveryBanner.png" alt="banner" className="deliveryPic"/>
           </div>
+
+          {/* Dish Container */}
+          <div className="disContainer">
+            <div className="menuCard">
+              <SubMenuContainer name={"Menu Category"}/>
+            </div>
+            <div className="rowContainer">
+              {
+                MenuItems && MenuItems.map((data) => (
+                  <div key={data.id}>
+                     <MenuCard imgSrc={data.imgSrc} name={data.name} isActive = {data.id === 1 ? true : false}/>
+                  </div>
+                ))
+              }
+             
+            </div>
+            <div className="dishitemContainer"></div>
+          </div>
+
         </div>
         <div className="rightMenu">Right</div>
       </main>
