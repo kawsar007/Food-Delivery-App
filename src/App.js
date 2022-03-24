@@ -1,9 +1,9 @@
 import { AccountBalanceWalletRounded, Chat, Favorite, HomeRounded, Settings, SummarizeRounded } from '@mui/icons-material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import BannerName from './Components/BannerName';
 import BottomMenu from './Components/BottomMenu';
-import { MenuItems } from './Components/Data.js';
+import { MenuItems, Items } from './Components/Data.js';
 import Header from './Components/Header';
 import ItemCard from './Components/ItemCard';
 import MenuCard from './Components/MenuCard';
@@ -11,10 +11,12 @@ import SubMenuContainer from './Components/SubMenuContainer';
 
 
 function App() {
-  // console.log(MenuItems, "Data");
+  const [isMainData, setMainData] = useState(
+    Items.filter((element) => element.itemId === "buger01")
+  )
+
   useEffect(() => {
      const menuLi = document.querySelectorAll("#menu li");
-     console.log(menuLi);
      function setMenuActive() {
        menuLi.forEach((n) => n.classList.remove("active"));
        this.classList.add("active");
@@ -31,6 +33,10 @@ function App() {
 
     menuCards.forEach((n) => n.addEventListener("click", setMenuCardActive));
   }, []);
+
+  const setData = (itemId) => {
+    setMainData(Items.filter((element) => element.itemId === itemId));
+  }
   return (
     <div className="App">
       {/* Header Section */}
@@ -51,7 +57,7 @@ function App() {
             <div className="rowContainer">
               {
                 MenuItems && MenuItems.map((data) => (
-                  <div key={data.id}>
+                  <div key={data.id} onClick={() => setData(data.itemId)}>
                      <MenuCard imgSrc={data.imgSrc} name={data.name} isActive = {data.id === 1 ? true : false}/>
                   </div>
                 ))
@@ -60,13 +66,19 @@ function App() {
             </div>
             {/* Dish Item Container */}
             <div className="dishitemContainer">
-              <ItemCard 
-              imgSrc={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx1MNr7YXhLO48AN4y5k_u7KaTbYMreXfrvw&usqp=CAU"} 
-              name={"Burger Bistro"} 
-              rating={5}
-              price={"7.5"}
-              />
-
+              {
+                isMainData && isMainData.map(data => (
+                  <ItemCard 
+                    key={data?.id}
+                    itemId={data?.id}
+                    imgSrc={data?.imgSrc}
+                    name={data?.name}
+                    rating={data?.ratings}
+                    price={data?.price}
+                  />
+                ))
+              }
+              
             </div>
           </div>
 

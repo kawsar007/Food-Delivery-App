@@ -453,6 +453,14 @@ main {
   font-size: 16px;
 }
 
+.orange {
+  color: #f8901c !important;
+}
+
+.gray {
+  color: #373848 !important;
+}
+
 .itemContent .bottom .price {
   font-size: 16px;
 }
