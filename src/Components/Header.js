@@ -1,7 +1,13 @@
 import { BarChart, SearchRounded, ShoppingCartRounded } from '@mui/icons-material';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Header() {
+    useEffect(() => {
+        const toggleIcon = document.querySelector(".toggleMenu");
+        toggleIcon.addEventListener("click", () => {
+          document.querySelector(".rightMenu").classList.toggle("active");
+        });
+      }, []);
     return (
         <header>
             <img src="https://thumbs.dreamstime.com/b/food-logo-smile-label-company-grocery-store-friendly-vector-illustration-smiling-mouth-symbol-135565322.jpg" alt="logo" className="logo"/>
@@ -35,4 +41,4 @@ function Header() {
     )
 }
 
-export default Header
+export default Header;
